@@ -5,9 +5,9 @@ from flask_migrate import Migrate
 db = SQLAlchemy()
 migrate = Migrate()
 
-def create_app(config_class=None):
+def create_app(TestConfig):
     app = Flask(__name__)
-    app.config.from_object(config_class or "app.config.Config")
+    app.config.from_object(TestConfig)
 
     db.init_app(app)
     migrate.init_app(app, db)
